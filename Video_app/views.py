@@ -3,8 +3,7 @@ from django.views.generic import View
 
 
 class Login(View):
-    TEMPALTE = ''
-
+    TEMPLATES = ''
 
     def get(self, request):
-        return render(request, self.TEMPALTE)
+        return render(request, self.TEMPLATES)
