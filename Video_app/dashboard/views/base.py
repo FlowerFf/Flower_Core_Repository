@@ -1,14 +1,13 @@
 # encoding:utf-8
-
 from django.views.generic import View
-from Video_app.lib import base_render
+from Video_app.lib .base_render import render_to_response
 from django.shortcuts import render
 
 
-class Base(View):
+class Index(View):
 
-    TEMPLATE = '/templates/dashboard/Nav.html'
+    TEMPLATE = 'dashboard/Index.html'
 
     def get(self, request):
-        return render(request, self.TEMPLATE)
+        return render_to_response(request, self.TEMPLATE)
 

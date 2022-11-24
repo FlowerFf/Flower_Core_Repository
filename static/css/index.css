@@ -1,0 +1,26 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+}
+
+.div-area{
+    width: 600px;
+    height: 200px;
+    margin-top: 80px;
+    padding: 40px;
+    border: 1px solid grey;
+    border-radius: 10px;
+
+}
+h1{
+    text-align: center;
+    margin-top: 50px;
+    font-family: 楷体;
+    font-weight: bold;
+}
+.form-area{
+    vertical-align: central;
+}
+#button{
+    margin-left: 435px;
+}

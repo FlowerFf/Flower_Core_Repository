@@ -32,7 +32,7 @@ def render_to_response(request, template, data=None):
         result.update(d)
 
     result['csrf_token'] = ('<input type="hidden" name="csrfmiddlewaretoken" value={0} />'
-                            .format(request.META['CSRF_TOKEN']))
+                            .format(request.META['CSRF_COOKIE']))
 
     return HttpResponse(mako_template.render(**result))
 

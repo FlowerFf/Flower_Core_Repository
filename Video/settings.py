@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'Video.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'muke_video',
+        'NAME': 'video_test',
         'USER': 'root',
         'PASSWORD': '123456',
         'HOST': 'localhost',
