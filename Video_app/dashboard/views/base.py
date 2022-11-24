@@ -7,7 +7,7 @@ from django.shortcuts import render
 
 class Base(View):
 
-    TEMPLATE = 'dashboard/Base.html'
+    TEMPLATE = '/templatesNav.html'
 
     def get(self, request):
         return render(request, self.TEMPLATE)
