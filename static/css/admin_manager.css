@@ -1,0 +1,23 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+}
+
+h1{
+    text-align: center;
+    font-family: "楷体";
+    background-color: #badce3;
+}
+td{
+    font-family: "Times New Roman";
+    font-size: 20px;
+}
+.tr{
+    background-color: #b6effb;
+}
+.reset-text{
+    font-family: 楷体;
+    text-decoration: none;
+    font-weight: bold;
+    color: #e5c7ca;
+}

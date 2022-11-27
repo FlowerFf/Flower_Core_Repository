@@ -1,0 +1,42 @@
+<%inherit file="../Base.html" />
+<%def name="content()">
+<h1>管理员模块</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>用户名</th>
+            <th>是否是管理员</th>
+            <th>创建时间</th>
+            <th>更多操作</th>
+        </tr>
+    </thead>
+    <tbody>
+    <%! from django.shortcuts import reverse %>
+            %for user in users:
+        <tr class="tr">
+            <td>${user}</td>
+            <td>${user.is_superuser}</td>
+            <td>${user.date_joined}</td>
+                %if user.is_superuser:
+                <td><a class="reset-text" href="${reverse('update')}?status=off">撤销管理员</a></td>
+                %else:
+                <td><a class="reset-text" href="${reverse('update')}?status=on">设置管理员</a></td>
+                %endif
+        </tr>
+    %endfor
+    </tbody>
+</table>
+<%
+    previous_page = '{}?page={}'.format(reverse('manager'), page_num-1)
+    next_page = '{}?page={}'.format(reverse('manager'), page_num+1)
+%>
+<div>
+    %if page_num > 1:
+    <button class="btn"><a class="reset-text" href="${previous_page}">上一页</a></button>
+    %endif
+
+    %if page_num < total_pages:
+    <button class="btn"><a class="reset-text" href="${next_page}">下一页</a></button>
+    %endif
+</div>
+</%def>
