@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/static/css/bootstrap.min.css"/>
 </head>
 <body>
-<%! from django.shortcuts import reverse %>
+<%! from django.shortcuts import redirect, reverse %>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="${reverse('index')}">DashBoard</a>
@@ -20,7 +20,7 @@
                         ${request.user}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="${reverse('login')}">login out</a></li>
+                        <li><a class="dropdown-item" href="${reverse('logout')}">Login Out</a></li>
                     </ul>
                 </li>
             </ul>

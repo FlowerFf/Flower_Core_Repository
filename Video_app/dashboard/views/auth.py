@@ -43,6 +43,13 @@ class Login(View):
         return redirect('index')
 
 
+class LoginOut(View):
+
+    def get(self, request):
+        logout(request)
+        return redirect(reverse('login'))
+
+
 class AdminManager(View):
     TEMPLATES = 'dashboard/auth/admin.html'
 
@@ -51,17 +58,18 @@ class AdminManager(View):
         users = User.objects.all()
         page = request.GET.get('page', 1)
         p = Paginator(users, 1)  # 分页
-        total_pages = p.num_pages
+        total_pages = p.num_pages       # 获取总页数
 
         if int(page) <= 1:
             page = 1
-        current_page = p.get_page(int(page)).object_list
+        current_page = p.get_page(int(page)).object_list      # ？
 
         data = {'users': current_page, 'total_pages': int(total_pages), 'page_num': int(page)}
         return render_to_response(request, self.TEMPLATES, data)
 
 
 class AminManagerUpdateStatus(View):
+    """待修改"""
 
     def get(self, request):
         status = request.GET.get('status', 'on')
@@ -72,9 +80,3 @@ class AminManagerUpdateStatus(View):
         user.update(is_superuser=_status)
         return redirect(reverse('manager'))
 
-
-class LoginOut(View):
-
-    def get(self, request):
-        logout(request)
-        return redirect(reverse('login'))
